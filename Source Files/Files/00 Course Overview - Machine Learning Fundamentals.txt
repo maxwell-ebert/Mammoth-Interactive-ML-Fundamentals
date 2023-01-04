@@ -1,0 +1,45 @@
+Machine Learning Fundamentals
+
+
+  Machine Learning Introduction
+  Python Introduction
+
+  Probability and Statistics for Machine Learning
+  Distributions in Machine Learning
+  Machine Learning Optimization
+
+All source files provided!
+
+
+
+Requirements 
+ 
+
+No coding experience required
+No math experience required
+
+Python introduction included 
+
+No installation required
+No paid software required 
+
+Code editor with Python support
+Free online: Google Colab
+https://colab.research.google.com
+Or on your computer
+
+Working with Google Colab
+Variable values can get stuck. 
+If your changes don’t seem to update, restart the runtime.
+
+How to Debug
+Search your bug, problem or question via a search engine 
+Many answers on Stack Overflow 
+Join a Discord server
+
+How to Debug
+Visit the Github for the library that isn’t working
+Visit the documentation for what you are struggling with
+
+Machine Learning Fundamentals
+
