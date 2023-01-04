@@ -1,0 +1,158 @@
+#Session 1 notes - 1/4/2023
+
+A. Types of ML Models
+
+Group 1 - Clustering models - used to group similar objects. Ex. can group customers - most likely to buy product vs unlikely to buy. Helps label data for Supervised Machine Learning.
+	-Supervised ML relies on labelled input data to learn a function that can be used on unlabeled data. Ex- every image must have a description of the image (i.e dog, cat, person, etc)
+	-Since supervised ML requires labelled data, clustering models help provide a means for labelling data. 
+	-Some examples of clustering algorithms:
+		1. K means
+		2. K means ++
+		3. K medioids
+		4. Agglomerative clustering DBSCAN
+
+Group 2 - Regression Models
+	- Output variable can take continuous values
+		- Example - predicting a price of an item based on features (i.e. Price of car based on features.)
+				  - predict value of stock based on history
+	- Some examples of Regression Algorithms:
+		1. Linear Regression
+		2. Lasso Regression
+		3. Ridge Regression
+		4. SVM Regression
+		5. Decision Tree Regression
+
+Group 3 - Deep Learning
+	- Neural Networks
+	- Attempts to mimic the human brain with neural network algorithm structure
+	- Deep learning commonly used for classifying images
+		- Neural network can learn what is inside images based on features. 
+
+	- Some examples of Deep Learning Applications
+		1. Computer Vision
+			- Anything that has to do with visual applications (Classifying images, etc)
+		2. Natural Language Processing
+			- Anything dealing with understanding speech and text
+			- can train algorithim to read/write
+		3. Autonomous Vehicles
+		4. Image Filtering
+		5. Text Generation
+
+Group 4 - Classification Models
+	- Predict type of object within a number of options
+		- Categorical versus continuous
+		- Not trying to find best fit trend line, but rather separating data into different classes
+	- Some Applications of Classification Models:
+		1. Check Email for spam
+		2. Check reviews for positive/negative
+		3. Check Species of a flower
+	- Some Examples of Classification Algorithms:
+		1. K-Nearest Neighbors (KNN)
+		2. Naive Bayes
+		3. Logistic Regression
+		4. SVM (Support Vector Machine)
+		5. Decision Tree
+		6. Ensemble - combination of any classification algorithms 
+	- K-Nearest Neighbors
+		- Assumes that similar things are near to each other
+		- Calculates distance between points on a graph to identify similar objects
+			- Plots every data point onto a graph based on different values
+			- Objects with similar properties will be 'close' to each other on that graph
+	- Naive Bayes
+		- Assumes the presence of a feature in a class is unrelated to other features
+		- A cat has whiskers, a tail and a nose, but each of these features is independent
+			- Similar to KNN
+		- Common project - flowers, Have 3 types of flowers (Virginica, Versicolor, Setosa)
+			- plot by petal length (x axis) and petal width (y axis)
+			- if 2 flowers are close to each other on plot, then those flowers are likely the same species 
+	- Logistic Regression
+		- Used when dependent variable (target) is categorical
+		- Example: is a review positive or negative
+		- Example: is an email spam or not
+		- Feed in independent variables (x1, x2, x3, etc), and algorithm can determine results
+	- Support Vector Machine (SVM)
+		- Finds plane that has the maximum distance between data points of both classes
+
+B. How Does A Machine Learning Agent Learn
+	- In the context of ML, what is learning?
+		- A ML agent can improve its ability to perform a task through experience
+	-Machine Learning Agent
+		- So far, an agent's perceptions have helped it choose its actions
+		- Now an agent's perceptions will help improve future behavior
+		- Learning agents are made up of different parts (including sensors and effectors)
+			- Peformance Element
+				- Gets data from sensors
+					- Sensors 
+						- Captures data about the environment
+				- Sends Data to Effectors
+					- Effectors
+						- Sends data to environment	
+				- Processes Percepts
+					- Percepts = Perceptions
+					- Processes different enviromental data that the agent receives
+					- Chooses actions
+					- This is the same as agents used in search algorithms
+			- Learning Element
+				- Maintains a relationship with the performance element
+				- Sends changes to performance element
+				- Receives knowledge from performance element
+			    - Back-and-forth relationship with performance element
+			    - Learning Element carries out improvements - improves its own performance
+			    	- not just doing a task, but also getting better each time the task is performance
+			    	- Requires self-knowledge
+			    	- Requires feedback
+			    		- Receives feedback from Critic Element
+			    		- When we build ML models, we provide feedback by which it improves
+			- Critic Element
+				- Critic element gets info from sensors
+				- Also gets information from performance standard (?)
+				- Sends feedback to the learning element
+				- Evaluates agent's behavior
+				- Uses external behavior measure
+					- Example: If our model is a classification model, user can evaluate agent's behavior based on whether or not
+					  data was correctly classified
+					  	- i.e. detecting objects in image - did model correctly identify objects in images, or no?
+					  	- This feedback is fed to the critic element, which in turn feeds it to the Learning Agent
+		  	- Problem Generator 
+		  		- Receives Learning Goals from Learning Element
+		  		- Sends information to Performance Element
+		  		- Suggest explorative actions to the Performance Element
+		  		- Leads agent to new experiences
+		- Learning agents exist in an environment, from which inputs and outputs are fed in and out
+
+C. What is Inductive Learning?
+	- Pure Inductive Inference
+		- For a collection of examples f(x), return an h(x) (hypothesis) that approximates f
+			- For example, a best fit line in a linear regression analysis would be the h(x) in the above statement
+			- Approximates the actual function
+		- Good hypothesis
+			- Should generalize data well
+			- Should predict unseen examples correctly
+				- Need to make sure hypothesis function gives accurate results
+		- Consistent Hypothesis
+			- Consistent with the dataset if hypothesis agrees with all data
+			- Otherwise, hypothesis is not consistent
+		- Choosing hypothesis
+			- Aim for the simplest, most consistent hypothesis
+				- Occam's Razor
+			- If you have several valid, consistent hypotheses, choose the simplest one
+			
+D. Python Language Basics
+	- Topics
+		- Intro to Python
+		- Variables and Operators
+		- Collection types
+		- Conditionals and Loops
+		- Functions
+		- Classes and Ojbects (might not even touch on these in this course, but writing this down as a reference to revisit later)
+
+E. What is google colab
+	- Refer to colab file in git
+F. What If I get Errors
+	- literally google it lmao (I'm not joking, that's the point of this vid. There's a feature in colab that does it for you. It's literally a stack overflow button)
+G. How do I terminate A Session
+	- Terminate session in Google Colab
+	- From Runtime drop down menu, select 'Manage Sessions;
+		- Will see list of all active session, along with 'Terminate' buttons
+		- Can terminate individual sessions, or terminate all at once with 'Terminate All' Button
+			
