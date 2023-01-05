@@ -1,3 +1,77 @@
 #Session 2 - Machine Learning Fundamentals - 1/4/2023
 
 1. Probability And Statistics For Machine Learning
+a. Distributions in Machine Learning
+	- Probability Distributions
+		- Random Variables
+			- Quantity that is produced by a random process
+			- Random variable can take on one of many possible values
+				- e.g. events from the state space
+				- specific value or set of values for a random variable that can be assigned a probability
+				- often denoted as capital letter (e.g. 'X')
+					- values of the random variable are denoted as a lowercase letter and an index (e.g. x1, x2, x3)
+			- Random Variables have Probability Distributions
+				- In addition to calculating likelihood of events, can also be used to summarize likelihood of all possible outcomes
+			- The summary of probabilities for the values of a random variable are called a probability distribution
+				- Summarizes the relationship between possible values and their probability for a random variable
+	- Continuous Probability Distributions
+		- One category of probability distributions
+		- Continuous Random Variable 
+			- Has continuous probability distribution
+			- Values are drawn from a range of real-valued numerical values
+				- examples include adult height, infant weight, stock prices
+			- Continuous probability Distribution describes the relationship between the events for a continuous random variable and their probabilities
+			- The probability for a given continuous random variable cannot be specified directly
+				- Probability CAN be specified for discrete random variables
+				- For continuous random variable, probability is caluclated as an integral (area under the curve) for a tiny interval around a specific outcome
+		- Uniform Distribution
+			- Common form of continuous probability distribution
+			- Uniform distribution refers to constant probabilities across the entire range of values in the domain which is the range of the x-axis for the random variable
+				- found in dice rolls, card draws, model parameter for ml, radioactive particles, demand on the economy
+			- (refer to colab notebook for this lesson)
+				- in our randomly made plot, we see that distribution is mostly uniform (similar counts for values across scale) but is not exact, with some variables. Count is relatively similar for values.
+		- Gaussian Distribution
+			- Is also commonly called bell-curve distribution, or normal distribution
+				- Very commonly used in stats and machine learning
+			- Gaussian Distribution, for example, can determine probability of picking heads in coin flip
+				- Can appear in sum of dice rolls, or height of people
+				- another example is _ scores of pets
+				- Covers probability of real-valued events
+				- Continuous random variable that has normal distribution is considered normally distributed
+			- (refer to colab notebook for this lesson)
+		- Log-Normal distributions
+			- Means that the natural logarithm of the log-normal distribution is normally distributed
+				- examples include income, length of online comments, duration of chess games, duration of rubik's cube solves, size of video files, number of hospitalized cases in a pandemic
+					- As income goes up, count of people with higher income decreases
+					- Most comments on forums or videos are relatively short, and count of longer-form comments decreases as the number of words in a comment increases
+			- in colab example, we see that the highest counts exist at the minimum, but as values increase, counts decrease, and decrease logarithmically 
+				- IMPORTANT: Log-normal data is not itself normally distributed 
+					- However, the LOG of the data is normally distributed, and we can see this when we create a normal plot of the log of our log-normal data (see colab) 				
+		- Exponential Probability Distribution
+			- few outcomes are the most likely
+			- rapid decrease in probability to all other outcomes
+			- Relatively squished up against zero and then decreases exponentially toward higher values
+			- Examples include:
+				- Time between requests to access Wikipedia pages
+				- Time between clicks on a counter
+				- Time until a part fails on a machine
+				- Time until someone defaults on a loan 
+			- Commonly seen in Deep Learning models
+			- Equivalent to geometric probability distribution for discrete random variables
+			- When you graph data that is exponentially distributed, it will look very similar to log-normal data, but if you plot the log of exponentially distributed data, it will not be normally distributed
+		- Laplace Probability Distribution
+			- Also called double exponential distribution
+			- Commonly seen in extreme weather events such as maximum rainfall in a day
+			- Has many ML applications, typically when an acute peak of probability is desired
+			- when you plot data with a laplace distribution, it will take on a bell curve shape, but it is not normally distributed
+				- in a laplace distribution, there will be discrepancies or jumps in values on the y-axis
+		- Binomial Distribution
+			- Binomial distribution is an example of a discrete probability distribution
+			- Discrete random variables are variables drawn from a finite set of states
+				- Heads/tails
+				- is image dog or cat
+				- true/false
+			- True/false or 1/2 or 0/1 are booleans
+			- y-axis of a charted boolean/discrete set shows event probability and x axis shows categories of outcomes
+				- lets us see distribution of event probabilities
+			- See colab notebook for example of probability testing for coin flips
