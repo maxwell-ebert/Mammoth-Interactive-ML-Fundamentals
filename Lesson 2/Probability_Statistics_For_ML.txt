@@ -1,7 +1,49 @@
 #Session 2 - Machine Learning Fundamentals - 1/4/2023
 
 1. Probability And Statistics For Machine Learning
-a. Distributions in Machine Learning
+a. Probability and Information Theory Overview
+	- Probability refers to the ability to quantify uncertainty
+	- ML models are trained on imperfect data
+		-Real world data is messy, with outliers, noise, etc
+	- Understanding probability will help you better understand what your ML model is doing and how it works. 
+		- Can understand appropriate var types and probability distributions	
+		- Can understand standard techniques for assessing relationships between distributions
+			- As well as use probability/information theory to quantify viable data among noise 
+	- Coin flip - a fair coin is equally likely to come up heads as it is to come up tails. 
+		- can use probability to express the likelihood of an event by comparing it to the sample space. 
+	- Event-probability equation 
+		- P(event)=(# of outcomes of event)/(# of outcomes in  Ω) where  Ω = sample space
+			- probability of coin flips = number of events (1, heads) divided by 2 (coin can come up heads/tails) (50% probability or 0.5)
+				-  Ω = {H,T}
+				- P(H) = .5
+				- P(T) = .5
+	- Multiple Independent Observations
+		- eg) 2 observations
+			-  Ω = {HH, HT, TH, TT} (Total possible outcomes are now 4 versus just heads/tails)
+			- P(HH)= .25, etc
+		- eg) 3 observations
+			-  Ω = {HHH, HHT, HTH, THH, HTT, THT, TTH, TTT}
+			- P(HHH) = .13, etc
+	- Combining Probability (Combinatorics)
+		- To combine probabilities, multiply them
+			eg) P(HHHHH) = P(HH) * P(HHH)=1/4 * 1/8 = 1/32 = .03 (still using coin flips in this example)
+		- Combinatorics is field of mathematics devoted to counting
+		- Use factorials to calculate probabilities	
+			- Number of combinations equation:
+				- (n  k) = n!/k!(n-k)! where n = # of observations and k = event 
+				- the number of observations of an event is equal to the numbers of observations factorial over the event factorial multiplied by (n minus k)factorial
+			- eg) find number of ways to get 2 head flips in 3 coin flips 
+				- n = 3 coin flips
+				- k = 2 head flips
+					-Using number of combinations equation:
+						(3  2) = 3!/2!(3-2)! = 3
+				- Result
+					- Number of combinations gave us first part of info for P(event) equation 
+						- Numerator for the event-probability equation (3) - three possibile outcomes
+						- for Ω, for any binary process with equally probable outcomes,  Ω =2^n where n is number of outcomes of event 
+							- Since in this case, n is the number of coin flips, n = 3 in this case, so 2^3 = 8 
+
+2. Distributions in Machine Learning
 	- Probability Distributions
 		- Random Variables
 			- Quantity that is produced by a random process
@@ -75,3 +117,32 @@ a. Distributions in Machine Learning
 			- y-axis of a charted boolean/discrete set shows event probability and x axis shows categories of outcomes
 				- lets us see distribution of event probabilities
 			- See colab notebook for example of probability testing for coin flips
+			-Created by sampling bernoulli trials where N is greater than 1
+			- Bernoulli distribution is equivalent of Binomial distribution where N of trials is 1
+		- Multinomial Distribution
+			- Generalization of Binomial Distribution to discrete random variables with more than 2 possible outcomes
+				- Roll of a dice 
+			- Works with any categorical variable 
+		- Poisson Distribution
+			- Used for count data (Number of cars drive by per minute, number of guests at a restaurant per day, number of new hires per month)
+			- the lamba guides peak of distribution
+				- sampling with lam 5 will tend to draw samples near 5
+3. Machine Learning Optimization
+	- In dataset, you have x/y 
+		- Actual Dataset, have x random variable with y dependent variable
+		- Model will predict y/yhat
+		- Can quantify the difference between the 'correct' target model output y and the model's predicted output yhat
+		- Error = yhat-y
+		- Typically consider several instances simultaneously
+		- simple approach
+			- Take average of all errors for each samples
+				-eg) errors 5,3
+					-Average error = (5+3)/2 = 4 - 4 is average error of model
+					- Problem with this is that you may have negative numbers as errors (eg 5, -5)
+						-Average error = (5 + (-5))/2 = 0
+							- This is bad because it implies that the model is perfect (it is not)
+								- To resolve this, use the absolute value of the error instead (Mean Absolute Error)
+									- eg) error 5, -5
+										- Average Error = (|5| + |-5|)/2 = 5
+						- Mean squared error 
+							- relatively tolerant of smaller errors, but less tolerant of larger errors, which tends to lead to better-fitting ML models
