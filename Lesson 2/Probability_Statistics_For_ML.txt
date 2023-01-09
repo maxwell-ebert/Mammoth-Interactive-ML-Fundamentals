@@ -43,7 +43,22 @@ a. Probability and Information Theory Overview
 						- for Ω, for any binary process with equally probable outcomes,  Ω =2^n where n is number of outcomes of event 
 							- Since in this case, n is the number of coin flips, n = 3 in this case, so 2^3 = 8 
 
-2. Distributions in Machine Learning
+2. Law of Large Numbers
+	- if you have a small dataset, there is a possibility of getting skewed results
+		- if you only flip a coin ten times, you COULD get 10 heads or 10 tails in row
+	- if you have larger data, better likelihood of having expected probability
+	- The same principe applies for ML models. 
+	- Look in the "Law of Large Numbers" colab notebook for a prime example of this	
+		- for our test with small N of experiments, skew is all over the place but as the number of experiments increases, probability approaches 0.5 for coin flips
+	- Beware Gambler's fallacy or Monte Carlo Fallacy
+		- Belief that belief that result random event is less/more likely to happen based on previous result of random event
+
+3. Calculate Center of Distribution
+	- By calculating central tendency, you can probide a summary statistic on the center of a given distribution
+		-i.e. average value of a distro 
+
+
+4. Distributions in Machine Learning
 	- Probability Distributions
 		- Random Variables
 			- Quantity that is produced by a random process
