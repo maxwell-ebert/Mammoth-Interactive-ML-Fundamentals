@@ -1,1 +1,162 @@
 ## Data Transformation For Machine Learning
+
+1. Performance of a Machine Learning Algorithm
+	- Steps
+		1. Collect dataset
+		2. Divide into training and testing sets
+		3. Generate h(x) with training set
+		4. Measure % of examples of the testing set correctly classified h(x)
+	- Things to watch out for:
+		1. ENSURE that training and testing sets are separate
+		2. An algorithm will remember testing sets
+			- DO NOT change the algorithm after testing and then re-test on the same testing set
+			- Possible to just re-build algorithm in a different file and/or object
+			- Don't run algorithm twice on same testing set
+
+2. Handle Noise in Data
+	- Noise 
+		- Random errors in learning data
+	- How does noise affect machine learning?
+		- Can lead to Overfitting
+			- Overfitting: Larger trees make more mistakes on new data
+				- ML model ingests noise and makes decisions based on noise
+		- We must reduce noise in ML data
+	- How can you handle noise?
+		1. Split training set into 70% learning and 30% validation
+		2. Build model on learning set
+		3. Iterate as long as accuracy on validation set increases
+			- As you're training, you're checking
+			- Is accuracy on my validation still increasing?
+				- As long as accuracy is increasing, then can continue to train ML model
+				- If accuracy on validation starts to decrease, then time to stop training
+					- The model is starting to eat noise
+	- Why does learning work?
+		- Weigh attributes to build as shallow a decision tree as possible
+		- Weight are calculated based on information gain
+		- Starts with most attribute getting most weight
+			- Least important attributes get little or no weight
+
+3. Powerful Tools with Machine Learning Libraries
+	- What is a library?
+		- Resources used by computer programs, often for software dev
+			- eg) configuration data, documentation, help data, message templates, pre-written code and subroutines, classes, values or type specifications
+	- What a library can provide:
+		- Data
+		- ML Models
+		- Functionality
+		- Pre-Written code
+		- and more!
+	- One example of popular ML library is Keras
+		- Neural network library in Python built on TensorFlow
+			- TensorFlow is google's ML kit
+		- Allows fast experimentation on deep neural networks
+	- TensorFlow 2
+		- An open-source software library
+		- Developed by Google 
+		- Lots of research/funding as a Google-developed tool
+		- Its math library is often used for neural networks
+		- TensorFlow 2 offers easy model building
+			- Templated ML Model building
+	- TensorFlow.js
+		- Machine Learning library for JavaScript
+		- Available in web browser
+		- Also on Node.js
+		- Why TensorFlow.js?
+			- Access device features (camera)
+			- Add ML to JS apps
+			- Can import TensorFlow Python Models for use in JS
+	- TensorFlow vs TensorFlow.js	
+		- TensorFlow came first (2015)
+		- Typically used with Python
+		- Partially implemented in native C++ code
+		- TensorFlow cannot run in browser
+		- TensorFlow.js provides the same functionality with JS
+		- Both are both open source
+		- Both are machine learning libraries
+		- Both are made by Google
+		- Both have Similar APIs
+		- JS is not as fast as native code
+		- Deep learning is possible: TF.js is fast
+		- Optimized backends in TF.js
+		- Uses GPU in browser
+		- Uses native bindings with Node.js
+	- Most common ML libraries:
+		1. Pandas
+			- Commonly used for ETL work
+			- Open source data analysis and manipulation tools
+			- Built on top of Python
+			- Provides fast, flexible and expressive data structures
+			- Designed to make working with data easy and intuitive
+			- Good to use with:
+				- SQL Table or excel spreadsheet
+				- Time series data
+				- Matrix data
+				- Observational/Statistical datasets
+			- Things you can do with Pandas:
+				- Handle missing data
+				- Mutate size
+				- Align data
+				- Convert data into DataFrame objects
+				- Join datasets
+				- Pivot data sets
+				- Time series functionality
+		2. NumPy
+			- Commonly used for data evaluation
+			- Allows for scientific computing with Python
+			- Powerful n-dimension arrays
+			- Mathematical functions and more numerical computing tools
+		3. Matplotlib
+			- Commonly used for Data Exploration 
+			- Python 2D plotting library
+			- Generate plots, histograms, bar charts, scatterplots and more with a few lines of code
+		4. SkiKit-Learn
+			- Commonly used for Data Modeling
+			- Lots of ML templates, and ML-related tools
+			- Simple/efficient tool for predictive data analysis 
+			- Capable of:
+				- Classification
+				- Regression
+				- Clustering
+				- Dimensionality reduction
+				- Model Selection
+				- Preprocessing
+	- Python has many visualization libraries
+		- Matplotlib, pandas
+		- Many are static
+			- Plotly allows for building of interactive images
+				- Open source library
+				- General data viz library
+				- Interactive visualization
+				- Libraries for JavaScript, React, R, and Python
+					- Python version is most popular
+				- Using Plotly alone builds interactive plots as .html files
+					- Users can zoom in, select, hover, etc
+					- Plots cannot connect to changing data sources
+					- Data is locked into exported state
+					- Need to re-run the python script and re-generate the .html file to see updates
+			- Dash allows for creation of dashboard web apps
+				- Plots can interact with each other
+				- Plots can Interact with components
+				- Plots Update in real time
+				- Open source library from plotly that builds full dashboard
+				- Instead of .html file, Dash builds a dashboard web app at a Local URL
+					- 127.0.0.1:8050
+				- Can visit and interact dashboard in webapp
+			- TF Lite
+				- Run ML models on mobile, embedded, and IoT devices
+					- Data can stay on device
+					- Can send training results back to server
+					- Light on processing load
+					- Open source deep learning framework for on-device inference
+					- Some features:
+						- Optimized for on-device machine learning
+						- Latency (no round-trip to a server)
+						- Privacy (no personal data leaves device)
+						- connectivity (internet connectivity not required)
+						- size (reduced model + binary size)
+						- Power consumption (efficient inference + lack of network connections)
+						- Multiple platform support (Android, iOS, Linus, microcontrollers)
+						- Supports many languages (Java, Swift, Objective-C, C++, Python...)
+						- High performance (hardware acceleration + model optimization)
+						- https://www.tensorflow.org/lite/guide
+		
