@@ -159,4 +159,42 @@
 						- Supports many languages (Java, Swift, Objective-C, C++, Python...)
 						- High performance (hardware acceleration + model optimization)
 						- https://www.tensorflow.org/lite/guide
+
+4. Load and Clean A Public Dataset
+	- We will be using data from UCI
+		- found at: https://archive.ics.uci.edu/ml/datasets/adult
+		- note prediction task, attributes, and other features
+		- While source data will be saved in my repo, it needs to also be saved to google drive in order to use in Colab
+		
+5. What is One Hot Encoding?
+	- uses categorical data	
+		- To refresh: data that has label values rather than numerical (eg) dogs and cats dataset)
+		- Categorical data can be referred to as Nominal Data
+		- Some models like decision tree can train from categorical data without requiring any data transformation
+		- Most ML cannot read english, and can only understand numbers
+			- To compensate, encode each categorical value to a numeric value
+	- Integer Encoding
+		- also called Ordinal Enconding or Label Encoding	
+			- imagine the Temperature Dataset: Col 1 is id and [0,1,2,3] col 2 is temperature [cold, warm, hot, warm]
+				- Converting temperature into integers would give us [1,2,3,2] where 1 = cold, 2 = warm, and 3 = hot
+		- Can only use integer encoding in cases where values have a natural ordered relationship with one another
+	- In One-Hot encoding, the integer encoded variable is removed
+	- new binary variable is added for each unique integer value
+		- example, datset of dogs and cats
+			- can't use integer encoding because dogs/cats do not have an ordered relationship
+			- instead, create 2 columns: animal_dog and animal_cat, and each is assigned either 0 or 1 based on what animal it is	
+				- For a dog, animal_dog = 1 and animal_cat = 0, and vice-versa
+				- can create as many one hot encoded categories as there are possible categories
+	- In one hot encoding, each output becomes an object to be rated by the model
+		- common method of preprocessing categorical features
+		- make a binary feature for each category
+		- Assign 1 to the feature of each sample that contains it
+	- Learned embedding
+		- inbetween one hot and integer encoding
+			- allows similar words to be converted to the same numeric representation so that ML model can learn their similarity
+			- allows classes to be represented as vector 
+			
+6. Build X and Y Data with One Hot Encoding
+	- see google colab
+			
 		
