@@ -195,6 +195,12 @@
 			- allows classes to be represented as vector 
 			
 6. Build X and Y Data with One Hot Encoding
-	- see google colab
+	- see google colab "load and clean a public dataset"
+	
+7. Logistic Regression With One Hot Encoding	
+	- see google colab "load and clean a public dataset"
+	
+8. Scale  and encode data with SciKit-Learn
+	- - see google colab "load and clean a public dataset"
 			
 		
