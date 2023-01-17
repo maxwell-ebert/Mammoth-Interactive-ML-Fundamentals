@@ -201,6 +201,79 @@
 	- see google colab "load and clean a public dataset"
 	
 8. Scale  and encode data with SciKit-Learn
-	- - see google colab "load and clean a public dataset"
+	- see google colab "load and clean a public dataset"
+	
+9. What is Scaling Data?
+	- Consider dataset with 4 features(columns) and 5 values (rows)
+	- There will be outliers
+	- feature3 has data that lies in the .00000000001 range
+	- if there are broad differences in features, then features must be scaled so that ML Model doesn't ignore
+	- if features in a dataset have values on different scales, then this can cause problems
+	- Scaling changes the range of values
+		- the shape of the distibution stays the same
+		- eg) scale model of a city has the same proportions
+	- feature3 is now scaled to match other features
+		- Typically, features are scaled on a range of 0 to 1
+		- consider two charts:
+			- the original has 0 to 50 on the x axis, and 1 to 10 on the y axis
+			- the scaled data has 0 to 1 on the x axis, and 50 to 500 on the y axis
+				- because we scaled the 0-50 range of the first chart to 0 to 1, we must do the same (multiply by 50) to the y axis
+				- This preserves distribution
+	- SciKit-Learn provides MinMaxScaler!
+		- The default range returned by MinMaxScaler is 0 to 1
+		- The relative spaces between each feature's values are saved
+		- MinMaxScaler doesn't reduce the importance of outliers
+		- Use other scalers if you want a normal distribution or for outliers to have less influence
 			
-		
+10. Build, Train and Test A Machine Learning Model
+	- see google colab
+
+11. Compare Decision Tree and Linear Regression Models
+	- see google colab
+
+12. What is the KBins Discretizer?
+	- Discretization
+	- Required to use if we have numerical data with highly skewed or nonstandard distribution	
+		- Many outliers, or has multi-modal distribution 
+			- or exponential distribution where common objects are bunched together
+	- Algorithims perform better when numerical variables have a standard probability distibution
+	- Some algorithms prefer or require categorical or ordinal input variables
+	- We can use discretizers to improve algorithms	
+		- Translating a quantitative variable into 2 ore more qualitative buckets or categories	
+		- essentially changing a numeric variable into a categorical 
+		- opposite of one hot encoding
+		- also called binning
+			- bins are assigned a number
+	- KBins is one type of discretization
+		- Bins refer to grouping, K refers to number of groups 
+		- values for a var are grouped into discrete bins
+		- ordinal relationship between bins are preserved
+		- consider column temperature on a given day in a dataset
+			- temp can range from 0-100
+			- you can bin into groups of 0-10, 10-20, etc
+			- now have converted numerical data into binned data
+	- KBins Code:
+	EXAMPLE 1:
+	from sklearn.preprocessing import KBinsDiscretizer
+	
+	discretizer = KBinsDiscretizer(n_bins = 10, strategy = 'uniform')
+	
+	discretizer.fit(X)
+	
+	X_binned = discretizer.transform(X)
+	
+	EXAMPLE 2:
+	encoding_discretizer = KBinsDiscretizer(n_bins = 10,
+											strategy = "Uniform"
+											encode = "onehot-dense")
+	encoding_discretizer.fit(X)
+	
+	X_binned = encoding_discretizer.transform(X)
+	
+	strategies: uniform (flexible number of bins), quantized (number of bins less than number of observations), kmeans (must use value for number of clusters that can be reasonably found)
+	
+	typically use ordinal encoding in KBins
+	
+13. Bin Data with KBins Discretizer
+	- See colab 
+	
